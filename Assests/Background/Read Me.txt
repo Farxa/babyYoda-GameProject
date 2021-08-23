@@ -1,0 +1,24 @@
+Recommended layer order (01_Sky being behind of everything and 12_Desert being in front):
+
+01_Sky
+02_Stars
+03_Moon
+04_Cloud
+05_Cloud
+06_Cloud
+07_Cloud
+08_Cloud
+09_Cloudsmall
+10_Cloudsmall
+11_Mountains
+12_Desert
+
+It's recommended that you will lower the opacity of the Cloud-assets (Something between 80% and 100% is optimal).
+
+You can use only the Combined Background-image as a background if you want to, it is seamless but you can't get the Parallax-effect with it.
+
+
+Thank you for choosing this background!
+
+Customer Support e-mail:
+digitalmoonsstudio@gmail.com
