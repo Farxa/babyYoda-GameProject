@@ -1,27 +1,28 @@
-class Treat {
+class Traps {
     constructor(image) {
         this.image = image;
         this.x = width;
-        this.y = (Math.random() * height / 2.5);
-        this.width = 30;
-        this.height = 30;
+        this.y = height - height / 9;
+        this.width = 100;
+        this.height = 80;
     }
+
     draw() {
         this.x --;
         image(this.image, this.x, this.y, this.width, this.height);
     }
 
     collision(childInfo) {
-        let treatX = this.x + (this.width/2);
-        let treatY = this.y + (this.height/2);
+        let trapX = this.x + (this.width/2);
+        let trapY = this.y + (this.height/2);
 
         let childX = childInfo.x + (childInfo.width/2);
         let childY = childInfo.y + (childInfo.height/2);
 
-        if (dist(treatX, treatY, childX, childY) > 25) {
+        if (dist(trapX, trapY, childX, childY) > 100) {
             return false; 
         } else {
-			game.babyYoda.score += 10;
+			game.babyYoda.life -= 10;
             return true;
         }
     }
