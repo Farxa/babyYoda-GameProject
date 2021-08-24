@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.treats = [];
         this.backgroundImages = [];
-        this.traps = [];
+        this.lasers = [];
     }
 
     setup() {
@@ -16,18 +16,18 @@ class Game {
             { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/02_Stars.png'), x: 0, speed: 1 },
             { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/03_Moon.png'), x: 0, speed: 0 },
             { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/04_Cloud.png'), x: 0, speed: 1 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/05_Cloud.png'), x: 0, speed: 1 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/06_Cloud.png'), x: 0, speed: 1},
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/07_Cloud.png'), x: 0, speed: 1 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/08_Cloud.png'), x: 0, speed: 2 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/09_Cloudsmall.png'), x: 0, speed: 2 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/10_Cloudsmall.png'), x: 0, speed: 2 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/11_Mountains.png'), x: 0, speed: 2 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/12_Desert.png'), x: 0, speed: 3 }
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/05_Cloud.png'), x: 0, speed: 2 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/06_Cloud.png'), x: 0, speed: 2},
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/07_Cloud.png'), x: 0, speed: 3 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/08_Cloud.png'), x: 0, speed: 3 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/09_Cloudsmall.png'), x: 0, speed: 3 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/10_Cloudsmall.png'), x: 0, speed: 4 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/11_Mountains.png'), x: 0, speed: 4 },
+            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/12_Desert.png'), x: 0, speed: 4 }
         ];
-        this.playerImage = loadImage('../Assests/baby-yoda-baby-yoda-walk.gif');
+        this.playerImage = loadImage('../Assests/baby-yoda.gif');
         this.macaroonImage = loadImage('../Assests/pixel-art-macaroons-hd-png.png');
-        this.trapImage = loadImage('../Assests/Traps/Bear_Trap.png')
+        this.laserImage = loadImage('../Assests/Lasers/laser.gif')
     }
 
     draw() {
@@ -35,13 +35,13 @@ class Game {
         clear();
         this.background.draw();
         this.babyYoda.draw();
-        // make treats and traps appear
-        if (frameCount % 200 === 0) {
+        // make treats and lasers appear
+        if (frameCount % 170 === 0) {
             this.treats.push(new Treat(this.macaroonImage));
         }
 
-        if (frameCount % 400 === 0) {
-            this.traps.push(new Traps(this.trapImage));
+        if (frameCount % 200 === 0) {
+            this.lasers.push(new Lasers(this.laserImage));
         }
 
         //draw the treats
@@ -49,12 +49,12 @@ class Game {
             macaroon.draw();
         })
 
-        // drawt the traps
-        this.traps.forEach((trap) => {
-            trap.draw();
+        // draw the lasers
+        this.lasers.forEach((laser) => {
+            laser.draw();
         })
 
-        // if yoda catches the macaroons || if the macaroons leave the canvas, remove them.
+        // if baby yoda catches the macaroons || if the macaroons leave the canvas, remove them.
         this.treats = this.treats.filter((macaroon) => {
             if (macaroon.collision(this.babyYoda) || (macaroon.x + macaroon.width) < 0) {
                 return false;
@@ -63,8 +63,9 @@ class Game {
             }
         })
 
-        this.traps = this.traps.filter((trap) => {
-            if (trap.collision(this.babyYoda)) {
+        //if baby yoda gets hit by laser, 
+        this.lasers = this.lasers.filter((laser) => {
+            if (laser.collision(this.babyYoda)) {
                 return false;
             } else {
                 return true;

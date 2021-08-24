@@ -2,7 +2,7 @@ class Treat {
     constructor(image) {
         this.image = image;
         this.x = width;
-        this.y = (Math.random() * height / 2.5);
+        this.y = (Math.random() * height / 1.5);
         this.width = 30;
         this.height = 30;
     }
@@ -18,7 +18,7 @@ class Treat {
         let childX = childInfo.x + (childInfo.width/2);
         let childY = childInfo.y + (childInfo.height/2);
 
-        if (dist(treatX, treatY, childX, childY) > 25) {
+        if (dist(treatX, treatY, childX, childY) > 60) {
             return false; 
         } else {
 			game.babyYoda.score += 10;
