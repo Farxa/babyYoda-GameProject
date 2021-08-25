@@ -28,7 +28,7 @@ class Lasers {
         if (dist(laserX, laserY, childX, childY) > 50) {
             return false; 
         } else {
-			game.babyYoda.life -= 10;
+			game.babyYoda.life -= 20;
             return true;
         }
     }

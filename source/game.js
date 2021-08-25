@@ -12,22 +12,22 @@ class Game {
 
     preload() {
         this.backgroundImages = [
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/01_Sky.png'), x: 0, speed: 0 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/02_Stars.png'), x: 0, speed: 1 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/03_Moon.png'), x: 0, speed: 0 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/04_Cloud.png'), x: 0, speed: 1 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/05_Cloud.png'), x: 0, speed: 2 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/06_Cloud.png'), x: 0, speed: 2},
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/07_Cloud.png'), x: 0, speed: 3 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/08_Cloud.png'), x: 0, speed: 3 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/09_Cloudsmall.png'), x: 0, speed: 3 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/10_Cloudsmall.png'), x: 0, speed: 4 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/11_Mountains.png'), x: 0, speed: 4 },
-            { src: loadImage('../Assests/Background/Parallax Desert Background (Seamless)/12_Desert.png'), x: 0, speed: 4 }
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/01_Sky.png'), x: 0, speed: 0 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/02_Stars.png'), x: 0, speed: 1 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/03_Moon.png'), x: 0, speed: 0 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/04_Cloud.png'), x: 0, speed: 1 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/05_Cloud.png'), x: 0, speed: 2 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/06_Cloud.png'), x: 0, speed: 2},
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/07_Cloud.png'), x: 0, speed: 3 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/08_Cloud.png'), x: 0, speed: 3 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/09_Cloudsmall.png'), x: 0, speed: 3 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/10_Cloudsmall.png'), x: 0, speed: 4 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/11_Mountains.png'), x: 0, speed: 4 },
+            { src: loadImage('Assests/Background/Parallax Desert Background (Seamless)/12_Desert.png'), x: 0, speed: 4 }
         ];
-        this.playerImage = loadImage('../Assests/baby-yoda.gif');
-        this.macaroonImage = loadImage('../Assests/pixel-art-macaroons-hd-png.png');
-        this.laserImage = loadImage('../Assests/Lasers/laser.gif')
+        this.playerImage = loadImage('Assests/baby-yoda.gif');
+        this.macaroonImage = loadImage('Assests/pixel-art-macaroons-hd-png.png');
+        this.laserImage = loadImage('Assests/Lasers/laser.gif')
     }
 
     draw() {
@@ -40,7 +40,7 @@ class Game {
             this.treats.push(new Treat(this.macaroonImage));
         }
 
-        if (frameCount % 200 === 0) {
+        if (frameCount % 50 === 0) {
             this.lasers.push(new Lasers(this.laserImage));
         }
 
