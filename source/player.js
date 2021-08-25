@@ -6,9 +6,10 @@ class Player {
         this.width = 90;
         this.height = 100;
         this.x = 10;
-        this.y = height / 2; // why is baby yoda not floating?
+        this.y = height - (this.height * 2); // why is baby yoda not floating?
         this.score = 0;
-        this.life = 100;
+        this.lives = 6;
+        this.down = false;
     }
    
 
@@ -19,8 +20,11 @@ class Player {
         this.y += this.velocity;
         this.y = constrain(this.y, 0, (height - this.height))
 
-        if (this.y >= height - this.height) {
-            this.y = height - this.height;
+        if (this.y > height - this.height * 2 && this.down === false) {
+            this.y = height - (this.height * 2);
+        }
+        if (this.y < (this.height / 2) + 200) {
+            this.down = false;
         }
     }
 
@@ -28,6 +32,9 @@ class Player {
         this.velocity = - 7;
     }
     goDown() {
-        this.velocity = 7;
+        if (this.y === height - (this.height * 2)) {
+            this.down = true;
+            console.log(this.down)
+        }
     }
 }

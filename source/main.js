@@ -4,6 +4,9 @@ let scroll;
 let isLeft;
 let isRight;
 
+// add a timer
+let Timer = 120;
+
 function preload() {
     // game assets
     game.preload();
@@ -27,7 +30,8 @@ function draw() {
     levelOne();
     // add health and life to the screen and connect them to baby yoda's score and life counter:
     text(("Score: " + game.babyYoda.score), width/12, 40);
-    text(("Life: " + game.babyYoda.life), width/12, 60);
+    text(("Lives: " + game.babyYoda.lives), width/12, 60);
+    text(("Timer: " + Timer), width/12, 100);
     //translate(scroll, 0);
 
     if(isLeft){
@@ -52,6 +56,9 @@ function draw() {
           scroll -= 5
         }
       
+    }
+    if (frameCount % 60 == 0 && Timer > 0){
+        Timer --;
     }
 }
 
@@ -80,10 +87,13 @@ function keyReleased() {
     if (keyCode === 39) {
         isRight = false;
     }
+    if (keyCode === 40) {
+        game.babyYoda.down = false;
+    }
 }
 
 function levelOne () {
-    text("Level 1", width/2, height-20);
+    text("Level 1", width / 2, height - 20);
 }
 
 //logic for scroll
