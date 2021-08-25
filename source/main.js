@@ -18,6 +18,7 @@ function setup() {
     textAlign(CENTER);
     game.setup();
     
+    
 
 }
 
@@ -27,7 +28,7 @@ function draw() {
     // add health and life to the screen and connect them to baby yoda's score and life counter:
     text(("Score: " + game.babyYoda.score), width/12, 40);
     text(("Life: " + game.babyYoda.life), width/12, 60);
-    translate(scroll, 0);
+    //translate(scroll, 0);
 
     if(isLeft){
         if(game.babyYoda.x > width * 0.1){
@@ -56,10 +57,10 @@ function draw() {
 
 function keyPressed() {
     if (keyCode === 38) {
-        game.babyYoda.jump();
+        game.babyYoda.goUp();
     }
     if (keyCode === 40) {
-        game.babyYoda.y = game.babyYoda.y + 15;
+        game.babyYoda.goDown();
        }
 
     if(keyCode === 37){

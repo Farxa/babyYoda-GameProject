@@ -24,8 +24,10 @@ class Player {
         }
     }
 
-    jump() {
+    goUp() {
         this.velocity = - 7;
     }
-    
+    goDown() {
+        this.velocity = 7;
+    }
 }
