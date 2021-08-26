@@ -13,7 +13,7 @@ let fontReady = false;
 let playMode = true;
 
 function preload() {
-    myFont = loadFont('../Assests/MajorMonoDisplay.ttf')
+    myFont = loadFont('Assests/MajorMonoDisplay.ttf')
     // game assets
     game.preload();
 }
