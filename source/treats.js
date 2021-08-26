@@ -2,7 +2,7 @@ class Treat {
     constructor(image) {
         this.image = image;
         this.x = width;
-        this.y = (Math.random() * height + 50);
+        this.y = (Math.random() * height * 2);
         this.width = 30;
         this.height = 30;
     }

@@ -94,14 +94,16 @@ class Game {
 	        text(Timer, 960, 35);
             // name of the game
             textFont(myFont);
-            textSize(60);
-            text('BabyYoda', 450, 50);
+            textSize(50);
+            fill(142, 47, 0)
+            stroke(142, 47, 0);
+            text('THE BABYYODA GAME', 510, 45);
         // make treats and lasers appear
-            if (frameCount % 110 === 0) {
+            if (frameCount % 95 === 0) {
             this.treats.push(new Treat(this.macaroonImage));
         }
 
-            if (frameCount % 180 === 0) {
+            if (frameCount % 160 === 0) {
             this.lasers.push(new Lasers(this.laserImage));
             }
 
@@ -133,8 +135,8 @@ class Game {
             }
         })
         } else {
-            fill(0,127,140);
-            stroke(0,127,140);
+            stroke(33,90,126);
+            fill(33,90,126)
             text('Paused!', 500, height - 300);
             textFont('Impact');
             fill(240,239,242, 70);
@@ -153,7 +155,10 @@ class Game {
     winScreen() {
         this.background.draw();
         image(this.winningScreen, 250, 100, width/2, height/2);
-        fill('white');
+        textFont('Consolas');
+        fill(33,90,126)
+        stroke(33,90,126);
+	    textSize(20);
         text('You Win!', 500, height - 80);
         this.backgroundMusic.stop();
         this.eatingSound.stop();
@@ -164,7 +169,10 @@ class Game {
         //noLoop();
         this.background.draw();
         image(this.losingScreen, 250, 100, width/2, height/2);
-        fill('white');
+        textFont('Consolas');
+        stroke(33,90,126);
+        fill(33,90,126)
+	    textSize(20);
         text('You killed Baby Yoda!', 500, height - 80);
         this.backgroundMusic.stop();
         this.eatingSound.stop();

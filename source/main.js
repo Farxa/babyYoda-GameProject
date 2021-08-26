@@ -5,7 +5,7 @@ let isLeft;
 let isRight;
 
 // add a timer
-let Timer = 60;
+let Timer = 40;
 let myFont;
 let fontReady = false;
 
