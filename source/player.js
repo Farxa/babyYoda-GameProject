@@ -8,7 +8,7 @@ class Player {
         this.x = 10;
         this.y = height - (this.height * 2); // why is baby yoda not floating?
         this.score = 0;
-        this.lives = 6;
+        this.life = 7;
         this.down = false;
     }
    
@@ -18,7 +18,7 @@ class Player {
         
         this.velocity += this.gravity;
         this.y += this.velocity;
-        this.y = constrain(this.y, 0, (height - this.height))
+        this.y = constrain(this.y, 50, (height - this.height));
 
         if (this.y > height - this.height * 2 && this.down === false) {
             this.y = height - (this.height * 2);

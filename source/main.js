@@ -5,33 +5,38 @@ let isLeft;
 let isRight;
 
 // add a timer
-let Timer = 120;
+let Timer = 60;
+let myFont;
+let fontReady = false;
+
+
+let playMode = true;
 
 function preload() {
+    myFont = loadFont('../Assests/MajorMonoDisplay.ttf')
     // game assets
     game.preload();
 }
 
 function setup() {
-    createCanvas(900, 500);
+    createCanvas(1000, 550);
     scroll = 0; //starting position for baby yoda
     isLeft = false;
     isRight = false;
-    textSize(20);
+    textFont('Impact');
     textAlign(CENTER);
     game.setup();
     
-    
-
+    if (game.stage == 0) {
+        text('The BabyYoda Game')
+    }
 }
 
 function draw() {
     game.draw();
-    levelOne();
+    //levelOne();
     // add health and life to the screen and connect them to baby yoda's score and life counter:
-    text(("Score: " + game.babyYoda.score), width/12, 40);
-    text(("Lives: " + game.babyYoda.lives), width/12, 60);
-    text(("Timer: " + Timer), width/12, 100);
+    
     //translate(scroll, 0);
 
     if(isLeft){
@@ -63,20 +68,32 @@ function draw() {
 }
 
 function keyPressed() {
+    // if arrow up
     if (keyCode === 38) {
         game.babyYoda.goUp();
     }
+    // if arrow down
     if (keyCode === 40) {
         game.babyYoda.goDown();
        }
-
+       // if arrow left
     if(keyCode === 37){
   
         isLeft = true;
       }
+      // if arrow right
       if(keyCode === 39){
       
         isRight = true;
+      }
+
+      // if enter is pressed(start game)
+      if (keyCode === 13) {
+          game.stage = 1;
+      }
+      // press spacebar to pause/unpause game
+      if (keyCode === 32) {
+          playMode = !playMode;
       }
 }
 
@@ -92,9 +109,9 @@ function keyReleased() {
     }
 }
 
-function levelOne () {
-    text("Level 1", width / 2, height - 20);
-}
+// function levelOne () {
+//     text("Level 1", width / 2, height - 20);
+// }
 
 //logic for scroll
 

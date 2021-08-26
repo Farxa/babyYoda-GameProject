@@ -11,7 +11,7 @@ class Lasers {
         this.x --;
         image(this.image, this.x, this.y, this.width, this.height);
 
-        this.x -= 25;
+        this.x -= 20;
     }
 
     collision(childInfo) {
@@ -21,18 +21,19 @@ class Lasers {
         let childX = childInfo.x + (childInfo.width/2);
         let childY = childInfo.y + (childInfo.height/2);
 
-        if (game.babyYoda.lives === 0) {
-            console.log('Game Over!')
-            noLoop();
+        if (game.babyYoda.life === 0) {
+            game.stage = 3;
+            
         }
-        if (Timer === 0 && game.babyYoda.lives > 0) {
-            console.log('You Win!')
-            noLoop();
+        if (Timer === 0 && game.babyYoda.life > 0) {
+            game.stage = 2;
+
         }
         if (dist(laserX, laserY, childX, childY) > 50) {
             return false; 
         } else {
-			game.babyYoda.lives -= 1;
+			game.babyYoda.life -= 1;
+            game.laserSound.play();
             return true;
         }
     }
