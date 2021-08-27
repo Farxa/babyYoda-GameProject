@@ -99,7 +99,7 @@ class Game {
             stroke(142, 47, 0);
             text('THE BABYYODA GAME', 510, 45);
         // make treats and lasers appear
-            if (frameCount % 95 === 0) {
+            if (frameCount % 110 === 0) {
             this.treats.push(new Treat(this.macaroonImage));
         }
 

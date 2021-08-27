@@ -2,7 +2,7 @@ class Lasers {
     constructor(image) {
         this.image = image;
         this.x = width;
-        this.y = (Math.random() * height * 2);
+        this.y = (Math.random() * height / 1.2);
         this.width = 100;
         this.height = 10;
     }
